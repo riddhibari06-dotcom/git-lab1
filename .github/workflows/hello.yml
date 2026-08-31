@@ -1,0 +1,17 @@
+name: Simple GitHub Actions WorkFlow
+
+on:
+ push:
+ workflow_dispatch:
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+
+steps:
+- name: Print Hello Message
+
+run: echo "Hello! github Action is working successfully."
+
+-name: Show Date
+run: date
