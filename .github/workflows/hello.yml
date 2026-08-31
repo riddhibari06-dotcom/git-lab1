@@ -1,17 +1,23 @@
-name: Simple GitHub Actions WorkFlow
+name: Simple CI
 
 on:
- push:
- workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  hello:
+  build:
     runs-on: ubuntu-latest
 
-steps:
-- name: Print Hello Message
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-run: echo "Hello! github Action is working successfully."
+      - name: Run a test command
+        run: echo "Hello from GitHub Actions!"
 
--name: Show Date
-run: date
+      - name: Check files
+        run: ls -la
